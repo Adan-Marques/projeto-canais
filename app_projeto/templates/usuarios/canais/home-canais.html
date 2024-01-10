@@ -1,0 +1,6 @@
+{% extends "usuarios/base.html" %}
+{% block conteudo %}
+    <h1> Home de canais </h1>
+    <a href="{% url 'cadastro-analista' %}" type="button" class="btn btn-dark">Acessar formulário de cadastro</a>
+    <a href="{% url 'analistas' %}" type="button" class="btn btn-dark">Acessar base de analistas</a>
+{% endblock %}

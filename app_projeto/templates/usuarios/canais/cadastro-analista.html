@@ -1,0 +1,36 @@
+{% extends 'usuarios/base.html' %}
+{% block conteudo %}
+  <form action="{% url 'analistas' %}" method="post">
+    {% csrf_token %}
+    <div style="text-align: center;" class="container">
+      <h1>Cadastro de Analistas</h1>
+
+      <label for="nome">Nome</label>
+      <input name="nome" class="form-control-sm" type="text" /><br />
+
+      <label for="email">Email</label>
+      <input name="email" class="form-control-sm" type="text" /><br />
+
+      <label for="celular">Celular</label>
+      <input name="celular" class="form-control-sm" type="text" /><br />
+
+      <label for="canal">Canal</label>
+      <input name="canal" class="form-control-sm" type="text" /><br />
+
+      <label for="cargo">Cargo</label>
+      <input name="cargo" class="form-control-sm" type="text" /><br />
+
+      <label for="oferta">Oferta</label>
+      <input name="oferta" class="form-control-sm" type="text" /><br />
+
+      <label for="modulo">Módulo</label>
+      <input name="modulo" class="form-control-sm" type="text" /><br />
+
+      <label for="submodulo">Submódulo</label>
+      <input name="submodulo" class="form-control-sm" type="text" /><br />
+
+      <button class="form-control-sm">Confirmar</button>
+      <a href="{% url 'home-canais' %}" type="button" class="btn btn-dark">Retornar</a>
+    </div>
+  </form>
+{% endblock %}
