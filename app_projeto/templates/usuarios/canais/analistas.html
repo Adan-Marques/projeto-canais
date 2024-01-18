@@ -13,6 +13,8 @@
             <th>oferta</th>
             <th>modulo</th>
             <th>submodulo</th>
+            <th>Excluir</th>
+
         </tr>
         {% for analista in analistas %}
         <tr>
@@ -25,6 +27,8 @@
             <td>{{analista.oferta}}</td>
             <td>{{analista.modulo}}</td>
             <td>{{analista.submodulo}}</td>
+            <td><a class="btn btn-danger" href="{% url 'deletar-analista' analista.id_analista %}">Excluir</a></td>
+        
         </tr>
         {% endfor %}
     </table>

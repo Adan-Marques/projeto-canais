@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from app_projeto import views
 from app_projeto.views import *
 
@@ -15,6 +15,11 @@ urlpatterns = [
     path('dashboard/', views.dashboard, name='dashboard'),
 
     path('home-canais/', views.home_canais, name='home-canais'),
-    path('cadastro-analista/', views.cadastro_analista, name='cadastro-analista'),
-    path('analistas/',views.analistas, name='analistas')
+    #path('home-canais/', include('app_projeto.urls')),
+    path('cadastro-analista/', views.cadastrar_analistas, name='cadastro-analista'),
+    path('analistas/',views.analistas, name='analistas'),
+    path('deletar-analista/<int:id>/', views.deletar_analista, name='deletar-analista'),
+
+    path('teste/', views.teste, name='teste'),
+
 ]
