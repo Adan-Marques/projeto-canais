@@ -5,6 +5,7 @@ from .forms import LoginForms, CadastroUserForms
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
+from django.http import HttpResponse
 
 def home(request):
     return render(request,'usuarios/home.html')
@@ -87,7 +88,7 @@ def cadastro(request):
     
 
 
-def cadastro_analista(request):
+def cadastrar_analistas(request):
     return render(request,'usuarios/canais/cadastro-analista.html')
 
 def logout(request):
@@ -103,3 +104,15 @@ def home_canais(request):
 
 def dashboard(request):
     return render(request,'usuarios/totvers/dashboard.html')
+
+
+def deletar_analista(request, id):
+    analista = Analista.objects.get(id_analista=id)
+    analista.delete()
+    return redirect('analistas') 
+
+
+def teste(request):
+    return render(request,'usuarios/teste.html')
+
+
