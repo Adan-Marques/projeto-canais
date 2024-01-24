@@ -6,10 +6,13 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
+@login_required
 def home(request):
     return render(request,'usuarios/home.html')
 
+@login_required
 def analistas(request):
     if request.method == 'POST':
         # Salvar os dados da tela para o banco de dados.
@@ -52,9 +55,8 @@ def login(request):
         else:
             messages.error(request, "Erro ao efetuar login")
             return redirect('login')
-
-
-    return render(request,'usuarios/login.html', {'form': form})
+        
+    return render(request,'login.html', {'form': form})
 
 def cadastro(request):
     form = CadastroUserForms()
@@ -85,12 +87,12 @@ def cadastro(request):
             return redirect('login')
 
     return render(request,'usuarios/cadastro.html', {'form': form})
-    
 
-
+@login_required
 def cadastrar_analistas(request):
     return render(request,'usuarios/canais/cadastro-analista.html')
 
+@login_required
 def logout(request):
     auth.logout(request)
     messages.success(request, "Logout efetuado")
@@ -99,20 +101,19 @@ def logout(request):
 def home_totver(request):
     return render(request,'usuarios/totvers/home-totver.html')
 
+@login_required
 def home_canais(request):
     return render(request,'usuarios/canais/home-canais.html')
 
+@login_required
 def dashboard(request):
     return render(request,'usuarios/totvers/dashboard.html')
 
-
+@login_required
 def deletar_analista(request, id):
     analista = Analista.objects.get(id_analista=id)
     analista.delete()
     return redirect('analistas') 
 
-
 def teste(request):
     return render(request,'usuarios/teste.html')
-
-

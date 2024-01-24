@@ -8,8 +8,8 @@ class LoginForms(forms.Form):
         max_length=100,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control",
-                "placeholder": "Ex.: Pedro Silva"
+                "class": "input-form",
+                "placeholder": "Ex.: Pedro Silva",
             }
         )
     )   
@@ -19,7 +19,7 @@ class LoginForms(forms.Form):
         max_length=70,
         widget=forms.PasswordInput(
             attrs={
-                "class": "form-control",
+                "class": "input-form",
                 "placeholder": "Digite sua senha"
             }
         )

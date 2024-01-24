@@ -1,52 +1,79 @@
-{% extends 'usuarios/base.html' %}
-{% block conteudo %}
-  <form action="{% url 'analistas' %}" method="POST">
-    {% csrf_token %}
-    <div style="text-align: center;" class="container">
-      <h1>Cadastro de Analistas</h1>
-
-      <label for="nome">Nome</label>
-      <input name="nome" class="form-control-sm" type="text" />
-      <br>
-      <br>
-     
-      <label for="email">Email</label>
-      <input name="email" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <label for="celular">Celular</label>
-      <input name="celular" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <label for="canal">Canal</label>
-      <input name="canal" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <label for="cargo">Cargo</label>
-      <input name="cargo" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <label for="oferta">Oferta</label>
-      <input name="oferta" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <label for="modulo">Módulo</label>
-      <input name="modulo" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <label for="submodulo">Submódulo</label>
-      <input name="submodulo" class="form-control-sm" type="text" />
-      <br>
-      <br>
-
-      <button class="form-control-sm">Confirmar</button>
-      <a href="{% url 'home-canais' %}" type="button" class="btn btn-dark">Retornar</a>
-    </div>
-  </form>
+{% extends 'base.html' %}
+{% load static %}
+{% block 'cabecalho' %}
+<link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
 {% endblock %}
+{% block 'conteudo' %}
+<div class="bg1">
+   <div class="container">
+      <div class="row">
+         <div class="col-md">
+            <div class="box-titulo">
+               <div class="box-titulo-item">
+                  <img src="{% static 'usuarios/img/logo.png' %}">
+               </div>
+               <div style="margin-top: auto; margin-bottom: auto;" class="box-titulo-item">
+               </div>
+            </div>
+            <hr class="divisor">
+            <br>
+            <div class="tac">
+               <h4 style="font-size: 30px">Lorem ipsum dolor sit<br> consectetur adipiscing elit</h4>
+            </div>
+         </div>
+         <div class="col-md">
+          <form action="{% url 'analistas' %}" method="POST">
+            {% csrf_token %}
+            <div style="text-align: center;">
+              <br>
+              <br>
+              <h1>Cadastro de Analistas</h1>
+              <br>
+              <label for="nome">Nome</label>
+              <input name="nome" class="form-control-sm" type="text" />
+              <br>
+              <br>
+            
+              <label for="email">Email</label>
+              <input name="email" class="form-control-sm" type="text" />
+              <br>
+              <br>
+
+              <label for="celular">Celular</label>
+              <input name="celular" class="form-control-sm" type="text" />
+              <br>
+              <br>
+
+              <label for="canal">Canal</label>
+              <input name="canal" class="form-control-sm" type="text" />
+              <br>
+              <br>
+
+              <label for="cargo">Cargo</label>
+              <input name="cargo" class="form-control-sm" type="text" />
+              <br>
+              <br>
+
+              <label for="oferta">Oferta</label>
+              <input name="oferta" class="form-control-sm" type="text" />
+              <br>
+              <br>
+
+              <label for="modulo">Módulo</label>
+              <input name="modulo" class="form-control-sm" type="text" />
+              <br>
+              <br>
+
+              <label for="submodulo">Submódulo</label>
+              <input name="submodulo" class="form-control-sm" type="text" />
+              <br>
+              <br>
+              <button class="btn-cadastro">Confirmar</button>
+              <a href="{% url 'home-canais' %}" type="button" class="btn btn-dark">Retornar</a>
+            </div>
+          </form> 
+         </div>
+      </div>
+   </div>
+</div>
+{% endblock 'conteudo' %}
