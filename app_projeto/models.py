@@ -29,19 +29,6 @@ class Submodulo(models.Model):
     def __str__(self):
         return Oferta.nome
 
-class Analista(models.Model):
-    id_analista = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=255, null=False, blank=False)
-    sobrenome = models.CharField(max_length=255, null=False, blank=False)
-    email = models.EmailField(max_length=255, null=False, blank=False)
-    celular = models.CharField(max_length=255, null=False, blank=False)
-    canal = models.CharField(max_length=255, null=False, blank=False)
-    cargo = models.CharField(max_length=255)
-    oferta = models.ForeignKey(Oferta, on_delete=models.DO_NOTHING)
-    modulo = models.CharField(max_length=255)
-    submodulo = models.CharField(max_length=255)
-
-
 class Unidade(models.Model):
     id_unidade = models.AutoField(primary_key=True)
     nome = models.CharField(max_length=255, null=False, blank=False)

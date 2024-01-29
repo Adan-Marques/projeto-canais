@@ -11,14 +11,10 @@ urlpatterns = [
     path('logout/', views.logout, name='logout'),
     path('cadastro/', views.cadastro, name='cadastro'),
     
-    path('home-totver/', views.home_totver, name='home-totver'),
-    path('dashboard/', views.dashboard, name='dashboard'),
 
-    path('home-canais/', views.home_canais, name='home-canais'),
-    #path('home-canais/', include('app_projeto.urls')),
-    path('cadastro-analista/', views.cadastrar_analistas, name='cadastro-analista'),
-    path('analistas/',views.analistas, name='analistas'),
-    path('deletar-analista/<int:id>/', views.deletar_analista, name='deletar-analista'),
+    path('totvs/', include('app_totvs.urls')),
+
+    path('canais/', include('app_canais.urls')),
 
     path('teste/', views.teste, name='teste'),
 
