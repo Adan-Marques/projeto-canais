@@ -1,4 +1,5 @@
-OFERTA_CHOICES = [
+'''
+OFERTA_CHOICES = (
     ("RM", "RM"),
     ("TOTVS MODA", "TOTVS MODA"),
     ("WINTHOR", "WINTHOR"),
@@ -17,4 +18,16 @@ OFERTA_CHOICES = [
     ("CMNET", "CMNET"),
     ("DBA", "DBA"),
     ("HOSPITALITY", "HOSPITALITY")
-]
+)
+'''
+
+
+CARGO_CHOICES = (
+    ('E', 'Estagiário'),
+    ('T', 'Técnico'), 
+    ('AI', 'Analista I'),
+    ('AII', 'Analista II'), 
+    ('AIII', 'Analista III'),
+    ('C', 'Consultor Especialista'), 
+    ('CP', 'Coordenador de Projeto')
+)
