@@ -13,22 +13,22 @@ def cadastrar_analistas(request):
 @login_required
 def analistas(request):
     if request.method == 'POST':
-        # Salvar os dados da tela para o banco de dados.
+
         novo_analista = Analista()  
         novo_analista.nome = request.POST.get('nome')
+        novo_analista.sobrenome = request.POST.get('sobrenome')
         novo_analista.email = request.POST.get('email')
         novo_analista.celular = request.POST.get('celular')
-        novo_analista.canal = request.POST.get('canal')
         novo_analista.cargo = request.POST.get('cargo')
-        novo_analista.oferta = request.POST.get('oferta')
-        novo_analista.modulo = request.POST.get('modulo')
+        novo_analista.status = request.POST.get('status')
+        novo_analista.canal = request.POST.get('canal')
         novo_analista.submodulo = request.POST.get('submodulo')
         novo_analista.save()
-        # Exibir todoso os analistas já cadastrados em uma nova página
+
     analistas = {
         'analistas': Analista.objects.all()
     }
-    # Retornar os dados para a página de listagem de analistas
+
     return render(request, 'usuarios/canais/analistas.html', analistas)
 
 @login_required

@@ -1,6 +1,6 @@
 from django.contrib import admin
 from .models import *
-from app_canais.models import Analista
+from app_canais.models import *
 
 admin.site.register(Analista)
 admin.site.register(Unidade)
