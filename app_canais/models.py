@@ -1,5 +1,6 @@
 from django.db import models
-from choices import *
+from app_canais.choices import *
+from django.contrib.auth.models import User
 
 class Oferta(models.Model):
     id_oferta = models.AutoField(primary_key=True)
@@ -53,19 +54,23 @@ class Canal(models.Model):
 
 
 class Analista(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     id_analista = models.AutoField(primary_key=True)
-    nome = models.CharField(max_length=255, null=False, blank=False)
-    sobrenome = models.CharField(max_length=255, null=False, blank=False)
-    email = models.EmailField(max_length=255, null=False, blank=False)
-    celular = models.CharField(max_length=255, null=False, blank=False)
+    nome = models.CharField(max_length=100, null=False, blank=False)
+    sobrenome = models.CharField(max_length=100, null=False, blank=False)
+    email = models.EmailField(max_length=100, null=False, blank=False)
+    celular = models.CharField(max_length=100, null=False, blank=False)
     cargo = models.CharField(max_length=4, choices=CARGO_CHOICES)
-    status = models.CharField(max_length=255, null=False, blank=False)
+    status = models.CharField(max_length=7, null=False, blank=False)
     canal = models.ForeignKey(Canal, on_delete=models.CASCADE)
-    submodulo = models.ManyToManyField(Submodulo, on_delete=models.PROTECT)
 
     def __str__(self):
         return self.nome
     
+
 class AnalistaSubmodulo(models.Model):
     analista = models.ForeignKey(Analista, on_delete=models.CASCADE)
     submodulo = models.ForeignKey(Submodulo, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.submodulo
