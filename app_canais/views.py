@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
-from .models import Analista
+from .models import *
 
 @login_required
 def home_canais(request):
-    return render(request,'usuarios/canais/home-canais.html')
+    return render(request,'home-canais.html')
 
 @login_required
 def cadastrar_analistas(request):
-    return render(request,'usuarios/canais/cadastro-analista.html')
+    return render(request,'cadastrar-analista.html')
 
 @login_required
 def analistas(request):
@@ -21,15 +21,13 @@ def analistas(request):
         novo_analista.celular = request.POST.get('celular')
         novo_analista.cargo = request.POST.get('cargo')
         novo_analista.status = request.POST.get('status')
-        novo_analista.canal = request.POST.get('canal')
-        novo_analista.submodulo = request.POST.get('submodulo')
         novo_analista.save()
 
-    analistas = {
-        'analistas': Analista.objects.all()
-    }
+    dados_analistas = Analista.objects.filter(user=request.user)
+    #submodulo_analistas = AnalistaSubmodulo.objects.filter(analista=novo_analista.id_analista)
 
-    return render(request, 'usuarios/canais/analistas.html', analistas)
+    return render(request, 'analistas.html',
+                  {'dados_analistas': dados_analistas,})
 
 @login_required
 def deletar_analista(request, id):
