@@ -61,7 +61,6 @@ class Analista(models.Model):
     email = models.EmailField(max_length=100, null=False, blank=False)
     celular = models.CharField(max_length=100, null=False, blank=False)
     cargo = models.CharField(max_length=4, choices=CARGO_CHOICES)
-    status = models.CharField(max_length=7, null=False, blank=False)
     canal = models.ForeignKey(Canal, on_delete=models.CASCADE)
 
     def __str__(self):
