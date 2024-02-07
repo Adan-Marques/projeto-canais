@@ -20,7 +20,7 @@ def analistas(request):
         novo_analista.email = request.POST.get('email')
         novo_analista.celular = request.POST.get('celular')
         novo_analista.cargo = request.POST.get('cargo')
-        novo_analista.status = request.POST.get('status')
+        novo_analista.canal = request.user
         novo_analista.save()
 
     dados_analistas = Analista.objects.filter(user=request.user)

@@ -49,12 +49,12 @@
    }
    .input-form{
     background-color: #0b1526;
-    padding: 10px;
+    padding: 2px;
     border: none;
     border: 1px solid rgba(8, 151, 233, .4);
     color: white;
     outline: 0;
-    width: 100%;
+    width: 250px;
    }
    .btn-cadastro{
     padding: 10px;
@@ -63,4 +63,13 @@
     border: 1px solid #0897E9;
     font-size: 18px;
     font-weight: bold;
+    width: 150px;
+    text-decoration: none;
+    color: #0b1526;
+    text-align: center;
+    margin: 20px;
+   }
+   .titulo{
+    font-weight: bold;
+    width: 100px;
    }
