@@ -1,18 +1,25 @@
-{% extends "usuarios/base.html" %}
-{% block conteudo %}
-<h1>Cadastro</h1>
+{% extends 'base.html' %}
+{% load static %}
+{% block 'cabecalho' %}
+<link href="{% static 'usuarios/css/cadastro.css' %}" rel="stylesheet">
+{% endblock %}
+{% block 'conteudo' %}
+<div class="bg1">
 <form action="{% url 'cadastro' %}" method="POST">
   {% csrf_token %}
-  <div class="row">
+  <div class="tac">
+    <br><br>
+    <h1>Cadastro</h1>
+    <br>
     {% include 'usuarios/_alertas.html' %}
     {% for field in form.visible_fields %}
-        <div class="col-12 col-lg-12" style="margin-bottom: 10px;">
-          <label for="{{ field.id_for_label }}" style="color:#D9D9D9; margin-bottom: 5px;">{{field.label}}</label>
+      <div style="margin-bottom: 10px;">
+          <label for="{{ field.id_for_label }}" class="label-form">{{field.label}}</label>
           {{ field }}
       </div>
     {% endfor %}
+    <br>
+    <button class="btn btn-success" style="width: 300px;">Cadastrar</button>
   </div>
-  <div>
-      <button class="btn btn-success col-12" style="padding: top 5px;">Cadastrar</button>
-  </div>
-{% endblock %}
+</form>
+{% endblock 'conteudo' %}

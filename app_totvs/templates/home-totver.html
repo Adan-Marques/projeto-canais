@@ -1,5 +1,11 @@
-{% extends "usuarios/base.html" %}
-{% block conteudo %}
+{% extends 'base.html' %}
+{% load static %}
+{% block 'cabecalho' %}
+<link href="{% static 'usuarios/css/default.css' %}" rel="stylesheet">
+{% endblock %}
+{% block 'conteudo' %}
+<div class="bg1">
     <h1> Home de Totvers </h1>
     <a href="{% url 'dashboard' %}" type="button" class="btn btn-dark">Acessar Dashboard</a>
-{% endblock %}
+</div>
+{% endblock 'conteudo' %}

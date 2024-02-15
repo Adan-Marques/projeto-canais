@@ -9,7 +9,7 @@ class LoginForms(forms.Form):
         widget=forms.TextInput(
             attrs={
                 "class": "input-form",
-                "placeholder": "Ex.: Pedro Silva",
+                "placeholder": "Digite seu usuário",
             }
         )
     )   
@@ -32,7 +32,7 @@ class CadastroUserForms(forms.Form):
         max_length=100,
         widget=forms.TextInput(
             attrs={
-                "class": "form-control",
+                "class": "input-form",
                 "placeholder": "Ex.: Pedro Silva"
             }
         )
@@ -43,7 +43,7 @@ class CadastroUserForms(forms.Form):
         max_length=100,
         widget=forms.EmailInput(
             attrs={
-            "class": "form-control",
+            "class": "input-form",
             "placeholder": "Ex.: pedrosilva@email.com"
             }
         ) 
@@ -54,7 +54,7 @@ class CadastroUserForms(forms.Form):
         max_length=70,
         widget=forms.PasswordInput(
             attrs={
-                "class": "form-control",
+                "class": "input-form",
                 "placeholder": "Digite sua senha"
             }
         )
@@ -65,7 +65,7 @@ class CadastroUserForms(forms.Form):
         max_length=70,
         widget=forms.PasswordInput(
             attrs={
-                "class": "form-control",
+                "class": "input-form",
                 "placeholder": "Digite sua senha novamente"
             }
         )
