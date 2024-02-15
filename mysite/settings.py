@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'app_projeto',
     'app_totvs',
     'app_canais',
+    'rolepermissions',
 ]
 
 MIDDLEWARE = [
@@ -138,11 +139,14 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 from django.contrib.messages import constants as messages
 MESSAGE_TAGS = {
-    messages.ERROR: 'danger',
-    messages.SUCCESS: 'success',
+    messages.ERROR: 'alert-danger',
+    messages.SUCCESS: 'alert-success',
     messages.DEBUG: 'alert-primary',
     messages.INFO: 'alert-info',
     messages.WARNING: 'alert-warning',
 }
 
 LOGIN_URL = '/login' 
+
+
+ROLEPERMISSIONS_MODULE = 'mysite.roles'

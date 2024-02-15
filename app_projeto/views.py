@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from rolepermissions.roles import assign_role
 
 @login_required
 def home(request):
@@ -27,10 +28,10 @@ def login(request):
         )
         if usuario is not None:
             auth.login(request, usuario)
-            messages.success(request, f"{nome} logado(a) com sucesso!")
+            messages.add_message(request, messages.SUCCESS, f"{nome} logado(a) com sucesso!")
             return redirect('home')
         else:
-            messages.error(request, "Erro ao efetuar login")
+            messages.add_message(request, messages.ERROR, "Erro ao efetuar login")
             return redirect('login')
         
     return render(request,'login.html', {'form': form})
@@ -59,6 +60,13 @@ def cadastro(request):
                 email=email,
                 password=senha
             )
+
+            totvs_dom = "@totvs.com.br"
+            if totvs_dom in usuario.email:
+                assign_role(usuario, 'totver')
+            else:
+                assign_role(usuario, 'canal')
+
             usuario.save()
             messages.success(request,"Cadastro efetuado com sucesso")
             return redirect('login')
