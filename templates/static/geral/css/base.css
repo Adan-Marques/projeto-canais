@@ -7,8 +7,16 @@
     --contrast-color: #FEAC0E;
     --differential-color: #6B48FF;
    }
-   body{
-    background-color: var(--dark-color) !important;
-    color: white !important;
-   }
-   
+    body{
+        background-color: var(--dark-color) !important;
+        color: white !important;
+    }
+    .bg1{
+        background-image: url('/static/usuarios/img/bg1.png') !important;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 200vh;
+    }
+    .tac{
+        text-align: center;
+    }

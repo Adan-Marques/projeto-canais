@@ -35,20 +35,16 @@
                <br>
                {% if messages %}
                {% for message in messages %}
-               <section class="alert {{message.tags}}">
+               <div class="alert {{message.tags}}">
                   {{message}}
-               </section>
+               </div>
                {% endfor %}
                {% endif %}
                <form action="{% url 'login' %}" method="POST">{% csrf_token %}
-                  <div class="row">
                     {% for field in form.visible_fields %}
-                    <div class="col-12 col-lg-12" style="margin-bottom: 10px">
-                        <label for="{{ field.id_for_label }}" style="color:#EEEEEE"; margin-bottom:"5px";>{{field.label}}</label>
-                        {{ field }}
-                    </div>   
+                        <label for="{{ field.id_for_label }}">{{field.label}}</label>
+                           {{ field }}
                     {% endfor %}
-                  </div>
                   <br>
                   <input type="submit" value="Enviar" class="btn-cadastro">
                   <br>
