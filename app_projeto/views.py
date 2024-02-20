@@ -6,6 +6,7 @@ from django.contrib import auth
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from rolepermissions.roles import assign_role
+from rolepermissions.checkers import has_role
 
 @login_required
 def home(request):
@@ -29,7 +30,12 @@ def login(request):
         if usuario is not None:
             auth.login(request, usuario)
             messages.add_message(request, messages.SUCCESS, f"{nome} logado(a) com sucesso!")
-            return redirect('home')
+            if has_role(usuario, 'totver'):
+                return redirect('home-totver')
+            elif has_role(usuario, 'canal'):
+                return redirect('home-canais')
+            else:
+                return redirect('home')
         else:
             messages.add_message(request, messages.ERROR, "Erro ao efetuar login")
             return redirect('login')
@@ -64,9 +70,6 @@ def cadastro(request):
             totvs_dom = "@totvs.com.br"
             if totvs_dom in usuario.email:
                 assign_role(usuario, 'totver')
-            else:
-                assign_role(usuario, 'canal')
-
             usuario.save()
             messages.success(request,"Cadastro efetuado com sucesso")
             return redirect('login')
